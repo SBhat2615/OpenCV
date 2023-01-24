@@ -1,0 +1,83 @@
+-> opencv snippets EXTENSION
+
+## Image Capture
+    imgVarible = cv2.imread("loc", [-1,0,1])
+    cv2.imshow("windowName", imgVariable)
+
+## Video Capture
+
+    # VIDEO IMPORT #
+    videoVar = cv2.VideoCapture("loc", videoFile)
+    while 1:
+        success, img = videoVar.read()
+        cv2.imshow("video", img)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # WEBCAM #
+    videoVar = cv2.VideoCapture(0)
+    set(id, value) ---> id == 3 for width,   4 for height,   10 for brightness
+    ....
+
+
+## Basic functions
+    gray image = cv2.cvtColor(variable, cv2.COLOR_BGR2GRAY)
+    blur image = cv2.GaussianBlur(variable, :kernelSize: (7,7), 0)
+    edges image = cv2.Canny(varible, :threshold1: 100, :threshold2: 100)
+    dilate image = cv2.dilate(variable, kernel(def using numpy), iterations=1)
+    erode image = cv2.erode(variable, kernel, iterations= )
+
+
+## Resizing & Cropping
+    print(img.shape)
+    * imgResized = cv2.resize(img, (width, height)) {same goes for video, i.e., img = frame}
+    * imgCropped = img[(height) 0:500 , (width) 0:500]
+
+    Other method:
+
+
+## Add shapes & texts
+
+    Create:
+        img = np.zeros((512,512)) -- Gray image
+        img = np.zeros((512,512,3), np.uint8) -- Color image
+        img[:] = 255,0,0    -- Color whole image with blue
+        img[(height limit)0:256, (width limit)0:256]
+
+        print(img)      -- print matrix value of images
+        @ img.shape[0]    -- width of img
+        @ img.shape[1]    -- height of img
+
+    Create lines:
+        cv2.line(variable, (0,0) lineStart, (300,300) lineEnd, (255,0,0) lineColor, 3 thickness)
+    
+    Create rectangle:
+        cv2.rectangle( " )
+        cv2.rectangle( " , " , " , " , cv2.FILLED)      -- fill the rectangle
+        cv2.circle(variable, {center} (150, 150), {radius} 3, color, thickness)
+        cv2.putText(variable, {text} "opencv", {start} (300, 100), {font} cv2.FONT_HERSHEY_COMPLEX, {scale} 1 , {color}  , {thickness})
+            scale vs thickness
+
+## Warp perspective
+
+
+
+## Joining images
+    @ Two same images horizontally
+        imgHorizontal = np.hstack((img,img))
+    @ Two same images vertically
+        imgVertical = np.vstack((img,img))  
+    Disadv : Image resize not possible(scaling) & can't combine all types of images
+    Soln : Create a stack function
+
+## Color detection
+    
+
+## Contours & shape detection
+
+
+## Face detection
+    1. Online cascades
+    2. Custom cascades
+
+## 
